@@ -42,6 +42,7 @@ public class Request {
         }
         catch (java.io.IOException e) {
             e.printStackTrace();
+            throw new RuntimeException("An error has occurred in the request");
         }
         catch (Exception e) {
             e.printStackTrace();

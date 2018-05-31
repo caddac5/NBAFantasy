@@ -151,7 +151,8 @@ public class App
         }
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter("NBABoxScores_"+date2+".xls", "UTF-8");
+            String cleanDate = sdf.format(date).replaceAll("/","-");
+            writer = new PrintWriter("NBABoxScores_"+cleanDate+".xls", "UTF-8");
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -181,8 +182,9 @@ public class App
         try {
             data = request.sendGet(url, date);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+            statusLabel.setText("An error has occurred. Please try again.");
             e.printStackTrace();
+
         }
         JSONObject obj = new JSONObject(data);
         JSONArray games = obj.getJSONArray("resultSets").getJSONObject(0).getJSONArray("rowSet");
