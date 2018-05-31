@@ -10,7 +10,6 @@ public class Request {
         System.out.println("Sending get request...");
         URL obj = new URL(url);
         try{
-            // test
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             System.out.println("Connection opened...");
             System.out.println("Sending 'GET' request to URL : " + url);
