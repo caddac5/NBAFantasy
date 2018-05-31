@@ -1,0 +1,6 @@
+.settings/
+target/
+*.xls
+points.iml
+.idea/
+
