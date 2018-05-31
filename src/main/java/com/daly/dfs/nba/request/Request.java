@@ -17,10 +17,11 @@ public class Request {
             con.setRequestMethod("GET");
             con.setConnectTimeout(5000);
             con.setReadTimeout(30000);
-            con.setRequestProperty("Referer", "http://stats.nba.com/scores/"+date);
-            System.out.println("Referer is http://stats.nba.com/scores/"+date);
+            con.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36");
+            con.setRequestProperty("Referer", "http://stats.nba.com/scores/");
+            con.setRequestProperty("Accept-Language", "en");
 
-            //System.out.println("Response Code: " + con.getResponseCode());
+            System.out.println("Response Code: " + con.getResponseCode());
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
@@ -28,6 +29,7 @@ public class Request {
             StringBuffer response = new StringBuffer();
 
             while ((inputLine = in.readLine()) != null) {
+                System.out.println(inputLine);
                 response.append(inputLine);
             }
             in.close();
